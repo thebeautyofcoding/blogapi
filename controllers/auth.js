@@ -9,7 +9,6 @@ const _ = require('lodash')
 require('dotenv').config()
 sgMail.setApiKey(process.env.SG_API_KEY)
 
-
 exports.preSignup = async (req, res) => {
     const { name, email, password } = req.body
     
