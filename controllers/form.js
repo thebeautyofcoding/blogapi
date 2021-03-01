@@ -1,4 +1,4 @@
-const sgMail = require('@sendGrid/mail')
+const sgMail = require('@sendgrid/mail')
 
 sgMail.setApiKey(process.env.SG_API_KEY)
 exports.contactForm = (req, res) => {
