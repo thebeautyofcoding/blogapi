@@ -52,7 +52,6 @@ app.use('/api', userRoutes)
 app.use('/api', contactRoutes)
 app.use('/api',registerRoutes )
 
-// app.use(express.static(path.join('public')))
 
 const PORT = process.env.PORT || 4000;
 
