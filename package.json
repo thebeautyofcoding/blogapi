@@ -10,7 +10,6 @@
     "start:dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
-    "@sendgrid/mail": "^7.4.2",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
@@ -41,5 +40,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@sendgrid/mail": "^7.4.2"
+  }
 }
