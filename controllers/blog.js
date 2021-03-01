@@ -420,11 +420,11 @@ exports.listSearch = async (req, res) => {
     if (search) {
        const blogs= await Blog.find({
             $or:[{title:{$regex:search, $options:'i'}}, {body: {$regex: search, $options: 'i'}}]
-       }).catch(err => res.status(400).json({ error: err }))
+       }).catch(err => res.status(400).json({ error: err}))
            
-        //    .select('-photo -body')
-            
         
+            
+        if(!blogs)return res.status(400).json({error:'No blogs founds'})
             
          return res.status(200).json(blogs)
     }
