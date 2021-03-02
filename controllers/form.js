@@ -31,9 +31,9 @@ exports.contactForm = (req, res) => {
 
 exports.contactBlogAuthForm = (req, res) => {
 
-    const { email, name, message, authEmail } = req.body;
+    const { email, name, message, authorEmail } = req.body;
     
-    const mailList=[process.env.EMAIL_TO, authEmail]
+    const mailList=[process.env.EMAIL_TO, authorEmail]
     const emailData = {
         to: mailList,
         from: email,
