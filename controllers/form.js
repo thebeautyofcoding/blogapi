@@ -25,7 +25,7 @@ exports.contactForm = (req, res) => {
         console.log(sent)
    
         return res.status(200).json({success:'true'})
-    }).catch(err=>console.log(err.response))
+    }).catch(err=>res.stauts(400).json({err}))
 }
 
 
