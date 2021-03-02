@@ -23,8 +23,8 @@ const { googleLogin } = require('./controllers/auth');
 var upload = multer()
 const app = express()
 InitiateMongoServer()
-// app.use(cors())
-// app.options('*', cors());
+app.use(cors({credentials: true, origin: true}))
+app.options('*', cors());
 app.use(express.json())
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
@@ -32,12 +32,17 @@ app.use(express.urlencoded({limit: '25mb',  parameterLimit: 100000,}));
 app.use('/api', signoutRoute)
 app.use(express.json({ limit: '200mb', extended: true }))
 
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'https://writingislove.net');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();});
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+// app.use(function (req, res, next) {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+//     res.setHeader('Access-Control-Allow-Credentials', true);
+//     next();});
 
 app.use("/signup", upload.none(),
 
