@@ -6,7 +6,7 @@ exports.contactForm = (req, res) => {
     const { email, name, message } = req.body;
     console.log('was ist da los?', process.env.EMAIL_TO)
     const emailData = {
-        to: email,
+        to: process.env.EMAIL_TO,
         from: 'https://writingislove.net',
         subject: `Contact form - ${process.env.APP_NAME}`,
         text: `Email received from ${name} \n with email: ${email} \n and message: ${message} `,
@@ -25,7 +25,7 @@ exports.contactForm = (req, res) => {
         console.log(sent)
    
         return res.status(200).json({success:'true'})
-    }).catch(err=>console.log(err))
+    }).catch(err=>console.log(err.response))
 }
 
 
