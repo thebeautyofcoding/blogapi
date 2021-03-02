@@ -22,7 +22,7 @@ exports.contactForm = (req, res) => {
       console.log('22it is running')
     sgMail.send(emailData).then(sent => {
         console.log('24it is running')
-        return res.status(200).json({success:true})
+        return res.status(200).json({success:'true'})
     }).catch(err=>console.log(err))
     
 }
@@ -48,7 +48,9 @@ exports.contactBlogAuthForm = (req, res) => {
         `
     }
     sgMail.send(emailData).then(() => {
-        return res.status(200).json({success:true}).catch(res.status(400).json({error:'Oopsie, something failed so hard'}))
-    })
+        return res.status(200).json({ success: 'true' })
+            
+    //         .catch(res.status(400).json({ error: 'Oopsie, something failed so hard' }))
+    // })
     
 }
