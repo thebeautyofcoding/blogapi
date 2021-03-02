@@ -23,8 +23,8 @@ const { googleLogin } = require('./controllers/auth');
 var upload = multer()
 const app = express()
 InitiateMongoServer()
-app.use(cors())
-app.options('*', cors());
+// app.use(cors())
+// app.options('*', cors());
 app.use(express.json())
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
