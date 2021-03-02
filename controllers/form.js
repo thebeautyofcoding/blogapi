@@ -22,6 +22,7 @@ exports.contactForm = (req, res) => {
       console.log('22it is running')
     sgMail.send(emailData).then(sent => {
         console.log('24it is running')
+   
         return res.status(200).json({success:'true'})
     }).catch(err=>console.log(err))
     

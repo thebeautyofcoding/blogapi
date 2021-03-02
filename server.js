@@ -32,6 +32,13 @@ app.use(express.urlencoded({limit: '25mb',  parameterLimit: 100000,}));
 app.use('/api', signoutRoute)
 app.use(express.json({ limit: '200mb', extended: true }))
 
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'https://writingislove.net');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();});
+
 app.use("/signup", upload.none(),
 
   registerRoutes)
