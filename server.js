@@ -24,8 +24,8 @@ var upload = multer()
 const app = express()
 InitiateMongoServer()
 app.use(cors({credentials: true, origin: true}))
-app.options('*', cors());
-app.use(express.json())
+// app.options('*', cors());
+// app.use(express.json())
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(express.urlencoded({limit: '25mb',  parameterLimit: 100000,}));
