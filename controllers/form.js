@@ -7,7 +7,7 @@ exports.contactForm = (req, res) => {
     console.log('was ist da los?', process.env.EMAIL_TO)
     const emailData = {
         to: process.env.EMAIL_TO,
-        from: 'https://writingislove.net',
+        from: 'contact@writingislove.net',
         subject: `Contact form - ${process.env.APP_NAME}`,
         text: `Email received from ${name} \n with email: ${email} \n and message: ${message} `,
         html: 
