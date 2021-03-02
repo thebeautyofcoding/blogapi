@@ -4,7 +4,7 @@ sgMail.setApiKey(process.env.SG_API_KEY)
 exports.contactForm = (req, res) => {
 
     const { email, name, message } = req.body;
-    console.log('was ist da los?', email, name, message)
+    console.log('was ist da los?', process.env.EMAIL_TO)
     const emailData = {
         to: process.env.EMAIL_TO,
         from: email,
