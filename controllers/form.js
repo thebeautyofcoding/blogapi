@@ -51,6 +51,7 @@ exports.contactBlogAuthForm = (req, res) => {
         return res.status(200).json({ success: 'true' })
             
     //         .catch(res.status(400).json({ error: 'Oopsie, something failed so hard' }))
-    // })
+    // 
+        })
     
 }
