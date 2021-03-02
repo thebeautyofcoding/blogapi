@@ -30,7 +30,11 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({limit: '25mb',  parameterLimit: 100000,}));
 app.use('/api', signoutRoute)
 app.use(express.json({ limit: '200mb', extended: true }))
+app.get('/', function (req, res) {
 
+    res.header("Access-Control-Allow-Origin", "*");
+    res.send('hello world')
+})
 app.use("/signup", upload.none(),
 
   registerRoutes)
