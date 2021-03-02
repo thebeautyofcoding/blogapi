@@ -4,7 +4,7 @@ sgMail.setApiKey(process.env.SG_API_KEY)
 exports.contactForm = (req, res) => {
 
     const { email, name, message } = req.body;
-    
+    console.log('was ist da los?', email, name, message)
     const emailData = {
         to: process.env.EMAIL_TO,
         from: email,
@@ -22,6 +22,7 @@ exports.contactForm = (req, res) => {
       console.log('22it is running')
     sgMail.send(emailData).then(sent => {
         console.log('24it is running')
+        console.log(sent)
    
         return res.status(200).json({success:'true'})
     }).catch(err=>console.log(err))
