@@ -150,7 +150,7 @@ exports.forgotPassword = async (req, res) => {
 
     const userWhoForgotPassword = await User.findOne({ email }).catch(err => res.status(400).json({ error: 'Ooopsie, something went wrong' }))
     
-    if(!userWhoForgotPassword)return res.status(400).json({error:'No user with corresponding email found'})
+    if(!userWhoForgotPassword)return res.status(400).json({error:'No corresponding user with this email found'})
     const token = jwt.sign({ _id: userWhoForgotPassword._id }, process.env.JWT_RESET_PASSWORD, { expiresIn: '1d' })
 
 
