@@ -238,7 +238,8 @@ exports.read = async (req, res) => {
 
 
 exports.countBlogs = async(req, res) => {
-    const blogNumber = await Blog.find().count().catch(err => res.status(400).json({ message: 'failed' }))
+    const blogs = await Blog.find().select("-photo").catch(err => res.status(400).json({ message: 'failed' }))
+    const blogNumber = blogs.length
     
     res.status(200).json({blogNumber})
 }
